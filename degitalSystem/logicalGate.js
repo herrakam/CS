@@ -11,10 +11,10 @@ function nand(bool1, bool2) {
 }
 
 function xor(bool1, bool2) {
-  return bool1 !== bool2;
+  return !(bool1 === bool2);
 }
 
-exports.module = {
+module.exports = {
   and: and,
   or: or,
   nand: nand,
