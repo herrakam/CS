@@ -1,9 +1,9 @@
 function and(bool1, bool2) {
-  return bool1 === true && bool2 === true ? true : false;
+  return bool1 && bool2;
 }
 
 function or(bool1, bool2) {
-  return bool1 === true && bool2 === true ? true : false;
+  return bool1 || bool2;
 }
 
 function nand(bool1, bool2) {
@@ -11,7 +11,7 @@ function nand(bool1, bool2) {
 }
 
 function xor(bool1, bool2) {
-  return bool1 !== bool2 ? true : false;
+  return bool1 !== bool2;
 }
 
 exports.module = {
