@@ -9,13 +9,21 @@ function dec2bin(dicimal) {
     }
     last = Math.floor(num % 2);
     num = Math.floor(num / 2);
-    console.log(num, last);
     last === 1 ? (last = true) : (last = false);
     answer.push(last);
   }
   return answer;
 }
 
-function bin2dec(bin) {}
+function bin2dec(bin) {
+  let answer = 0;
+  let multiple = 1;
+  for (let i = 0; i < bin.length; i++) {
+    let check = bin[i];
+    answer += check * multiple;
+    multiple *= 2;
+  }
+  return answer;
+}
 
-console.log(dec2bin(6));
+console.log(bin2dec(dec2bin(6)));
