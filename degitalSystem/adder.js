@@ -21,21 +21,25 @@ function byteAdder(byteA, byteB) {
   byteA.length >= byteB.length // 둘중 긴 쪽을 arr1, 짧은쪽을 arr2
     ? ([arr1, arr2] = [byteA, byteB])
     : ([arr1, arr2] = [byteB, byteA]);
+  const lengthDiff = arr1.length - arr2.length;
+  for (let i = 0; i < lengthDiff; i++) {
+    arr2.push(false);
+  }
+  console.log(arr1, arr2);
   for (let i = 0; i < arr1.length; i++) {
     const bit1 = arr1[i];
-    let bit2;
-    i > arr2.length ? (bit2 = 0) : (bit2 = arr2[i]);
+    const bit2 = arr2[i];
     console.log(bit1, bit2);
     let [carryOutput, sum] = fullAdder(bit1, bit2, carry);
     carry = carryOutput;
     answer.push(sum);
   }
-  answer.push(carry);
+  if (carry === true) answer.push(carry);
   return answer;
 }
 
 const byteA = [true, true, false, false, true, false, true, false];
-const byteB = [true, true, false, true, true, false, false, true];
+const byteB = [true, true, false, true];
 
 console.log(byteAdder(byteA, byteB));
 // console.log(fullAdder(true, true, true));
